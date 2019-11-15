@@ -105,12 +105,27 @@ controller.hears([keywordRegExp('hello'), keywordRegExp('hey')], ['direct_messag
 
 // low effort
 controller.hears(['low', 'fast', 'quick', 'thirsty', 'near', 'close'].map(keywordRegExp), ['direct_message', 'direct_mention'], function (bot, message) {
-    bot.reply(message, 'Here are your options:');
-
+    bot.reply(message, 'Your best bets are ASHA and COCO!');
+    bot.reply(message, 'Here is a map to make it easy: https://www.google.com/maps/d/edit?mid=1rLlDE8udLngyAqLoo7PzTIbgRMdR8c-3&ll=37.788078005146744%2C-122.40538593500003&z=16');
 });
 
+// high quality
+controller.hears(['high', 'quality', 'best', 'amazing', 'great', 'incredible'].map(keywordRegExp), ['direct_message', 'direct_mention'], function (bot, message) {
+    bot.reply(message, 'We recommend Black Sugar. Look no further than the black sesame milk tea.');
+    bot.reply(message, 'Here is a map to make it easy: https://www.google.com/maps/d/edit?mid=1rLlDE8udLngyAqLoo7PzTIbgRMdR8c-3&ll=37.788078005146744%2C-122.40538593500003&z=16');
+});
 
+// creative
+controller.hears(['artsy', 'creative', 'instagram', 'media'].map(keywordRegExp), ['direct_message', 'direct_mention'], function (bot, message) {
+    bot.reply(message, 'If you REALLY want something from the gram, then there is always Plentea.');
+    bot.reply(message, 'Here is a map to make it easy: https://www.google.com/maps/d/edit?mid=1rLlDE8udLngyAqLoo7PzTIbgRMdR8c-3&ll=37.788078005146744%2C-122.40538593500003&z=16');
+});
 
+// sad
+controller.hears(['sad', 'bad', 'gloomy', 'somber'].map(keywordRegExp), ['direct_message', 'direct_mention'], function (bot, message) {
+    bot.reply(message, 'Oh, that kind of day... If you want to feel more sad, you could try Enough.');
+    bot.reply(message, 'Here is a map to make it easy: https://www.google.com/maps/d/edit?mid=1rLlDE8udLngyAqLoo7PzTIbgRMdR8c-3&ll=37.788078005146744%2C-122.40538593500003&z=16');
+});
 /**
  * AN example of what could be:
  * Any un-handled direct mention gets a reaction and a pat response!

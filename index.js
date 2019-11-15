@@ -81,13 +81,34 @@ controller.on('rtm_close', function (bot) {
  */
 // BEGIN EDITING HERE!
 
+
+function keywordRegExp(word) {
+    regExp = ".*";
+    for (let i = 0; i < word.length; i++) {
+        regExp += "[";
+        regExp += word[i].toUpperCase();
+        regExp += word[i];
+        regExp += "]";
+    }
+    regExp +=".*";
+    return regExp;
+}
+
+
 controller.on('bot_channel_join', function (bot, message) {
     bot.reply(message, "I'm here!")
 });
 
-controller.hears(['he*'], ['direct_message', 'direct_mention'], function (bot, message) {
-    bot.reply(message, 'Hello!');
+controller.hears([keywordRegExp('hello'), keywordRegExp('hey')], ['direct_message', 'direct_mention'], function (bot, message) {
+    bot.reply(message, 'Hello you! Craving for some sweet boba?');
 });
+
+// low effort
+controller.hears(['low', 'fast', 'quick', 'thirsty', 'near', 'close'].map(keywordRegExp), ['direct_message', 'direct_mention'], function (bot, message) {
+    bot.reply(message, 'Here are your options:');
+
+});
+
 
 
 /**
